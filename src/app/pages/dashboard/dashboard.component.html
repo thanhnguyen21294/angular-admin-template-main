@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-xl-6">
+    <nb-card>
+      <nb-card-header>Bar</nb-card-header>
+      <nb-card-body>
+        <ngx-bar-chart
+          [data]="barChartData"
+          [xAxisLabel]="barChartXAxisLabel"
+          [yAxisLabel]="barChartYAxisLabel"
+        >
+        </ngx-bar-chart>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-xl-6">
+    <nb-card>
+      <nb-card-header>Line</nb-card-header>
+      <nb-card-body>
+        <ngx-line-chart
+          [data]="lineChartData"
+          [xAxisLabel]="lineChartXAxisLabel"
+          [yAxisLabel]="lineChartYAxisLabel"
+        ></ngx-line-chart>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-xl-6">
+    <nb-card>
+      <nb-card-header>Pie</nb-card-header>
+      <nb-card-body>
+        <ngx-pie-chart [data]="pieChartData"></ngx-pie-chart>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-xl-6">
+    <nb-card>
+      <nb-card-header>Advanced Pie</nb-card-header>
+      <nb-card-body>
+        <ngx-advanced-pie-chart
+          [data]="advancedPieChartData"
+        ></ngx-advanced-pie-chart>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

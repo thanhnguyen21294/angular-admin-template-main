@@ -1,0 +1,54 @@
+<nb-card>
+  <nb-card-header>Profile</nb-card-header>
+
+  <nb-card-body>
+    <div class="row">
+      <div class="col-lg-6 col-md-8">
+        <div class="form-group">
+          <label for="email" class="label">Email address</label>
+          <input type="email" nbInput fullWidth id="email" [(ngModel)]="user.email" />
+        </div>
+        <div class="form-group">
+          <label for="firstName" class="label">First name</label>
+          <input type="text" nbInput fullWidth id="firstName" [(ngModel)]="user.firstName" />
+        </div>
+        <div class="form-group">
+          <label for="lastName" class="label">Last name</label>
+          <input type="text" nbInput fullWidth id="lastName" [(ngModel)]="user.lastName" />
+        </div>
+        <div class="form-group">
+          <label for="phone" class="label">Phone</label>
+          <input type="text" nbInput fullWidth id="phone" [(ngModel)]="user.phone" />
+        </div>
+        <button type="submit" nbButton status="danger" (click)="submit()" style="float: right">
+          Update profile
+        </button>
+      </div>
+
+      <div class="col-lg-6 col-md-4">
+        <label class="label">Profile picture</label>
+
+        <div class="avatar-upload" (click)="uploadProfilePicture()">
+          <img
+            class="avatar"
+            [src]="user.avatar || DEFAULT_AVATAR"
+            alt="avatar"
+            width="200"
+            height="200"
+          />
+          <div class="btn-edit">
+            <nb-icon icon="edit-outline"></nb-icon>
+            Edit
+          </div>
+          <input
+            class="file-input"
+            type="file"
+            accept="image/*"
+            #fileInput
+            (change)="onFileSelected($event)"
+          />
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
