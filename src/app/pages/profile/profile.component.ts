@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { User } from '../../@core/models/user';
+import { User } from '../../@core/models/User';
 import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { UserService } from '../../@core/services';
 import { NbToastrService } from '@nebular/theme';

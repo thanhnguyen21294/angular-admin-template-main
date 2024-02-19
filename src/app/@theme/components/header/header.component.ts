@@ -1,11 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import {
+  NbMediaBreakpointsService,
+  NbMenuService,
+  NbSidebarService,
+  NbThemeService,
+} from '@nebular/theme';
 
 import { LayoutService } from '../../../@core/services';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { NbAuthJWTToken, NbAuthService, NbTokenService } from '@nebular/auth';
-import { User } from '../../../@core/models/user';
+import { User } from '../../../@core/models/User';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,10 +19,11 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
   user: User;
+  selected: string = '1';
+  selectedView: string = '1';
 
   themes = [
     {
@@ -32,30 +38,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [{ title: 'Profile', link: '/pages/profile' }, { title: 'Log out', tag: 'logout' }];
-  MENU_TAG = 'user-menu'
+  userMenu = [
+    { title: 'Profile', link: '/pages/profile' },
+  ];
+  MENU_TAG = 'user-menu';
 
-  constructor(private sidebarService: NbSidebarService,
+  constructor(
+    private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
     private themeService: NbThemeService,
     private authService: NbAuthService,
     private tokenService: NbTokenService,
     private layoutService: LayoutService,
     private breakpointService: NbMediaBreakpointsService,
-    private router: Router) {
+    private router: Router,
+  ) {
     // Get user info
-    this.authService.onTokenChange()
-      .subscribe((token: NbAuthJWTToken) => {
-        if (token.isValid()) {
-          this.user = token.getPayload();
-        }
-      });
-
-    // Logout handler
-    this.menuService.onItemClick().subscribe((event) => {
-      if (event.tag === this.MENU_TAG && !event.item.link) {
-        this.tokenService.clear();
-        this.router.navigate(['/auth/logout']);
+    this.authService.onTokenChange().subscribe((token: NbAuthJWTToken) => {
+      if (token.isValid()) {
+        this.user = token.getPayload();
       }
     });
   }
@@ -65,20 +66,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     // Responsive
     const { xl } = this.breakpointService.getBreakpointsMap();
-    this.themeService.onMediaQueryChange()
+    this.themeService
+      .onMediaQueryChange()
       .pipe(
         map(([, currentBreakpoint]) => currentBreakpoint.width < xl),
         takeUntil(this.destroy$),
       )
-      .subscribe((isLessThanXl: boolean) => this.userPictureOnly = isLessThanXl);
+      .subscribe((isLessThanXl: boolean) => (this.userPictureOnly = isLessThanXl));
 
     // Change theme handler
-    this.themeService.onThemeChange()
+    this.themeService
+      .onThemeChange()
       .pipe(
         map(({ name }) => name),
         takeUntil(this.destroy$),
       )
-      .subscribe(themeName => this.currentTheme = themeName);
+      .subscribe((themeName) => (this.currentTheme = themeName));
   }
 
   ngOnDestroy() {
@@ -100,5 +103,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateHome() {
     this.menuService.navigateHome();
     return false;
+  }
+
+  handleLogout() {
+    this.tokenService.clear();
+    this.router.navigate(['/auth/logout']);
   }
 }

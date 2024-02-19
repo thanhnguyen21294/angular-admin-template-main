@@ -24,7 +24,7 @@
   }
 
   ::ng-deep nb-search button {
-    padding: 0!important;
+    padding: 0 !important;
   }
 
   .header-container {
@@ -67,4 +67,16 @@
       display: none;
     }
   }
+}
+
+.calendar-select {
+  ::ng-deep {
+    .nb-form-field-control-with-prefix > nb-select > button > span:first-child {
+      padding-left: 30px;
+    }
+  }
+}
+
+nb-action {
+  border-left: none;
 }

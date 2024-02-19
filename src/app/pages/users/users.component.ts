@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { User } from '../../@core/models/user';
+import { User } from '../../@core/models/User';
 import { NbDialogService } from '@nebular/theme';
 import { AddOrEditModalComponent } from './AddOrEditUserModal/AddOrEdit.component';
 import { TYPE } from '../../@core/constants/type.constant';

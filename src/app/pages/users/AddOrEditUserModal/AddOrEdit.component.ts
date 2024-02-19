@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TYPE } from '../../../@core/constants/type.constant';
 import { SelectService } from '../../../@core/services/select.service';
 import { UserService } from '../../../@core/services';
-import { User } from '../../../@core/models/user';
+import { User } from '../../../@core/models/User';
 import { formatDate, mapObjectData } from '../../../@core/utils/format';
 
 @Component({

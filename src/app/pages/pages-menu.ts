@@ -17,4 +17,34 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'people-outline',
     link: '/pages/products',
   },
+  {
+    title: 'Generate Reports',
+    icon: 'people-outline',
+    link: '/pages/generateReports',
+  },
+  {
+    title: 'Compliance',
+    icon: 'people-outline',
+    link: '/pages/compliance',
+  },
+  {
+    title: 'Policy',
+    icon: 'file-text-outline',
+    link: '/pages/policy',
+  },
+  {
+    title: 'Due Diligence',
+    icon: 'calendar-outline',
+    link: '/pages/dueDiligence',
+  },
+  {
+    title: 'Due Care',
+    icon: 'person-done-outline',
+    link: '/pages/dueCare',
+  },
+  {
+    title: 'Alarms',
+    icon: 'bell-outline',
+    link: '/pages/alarms',
+  }
 ];

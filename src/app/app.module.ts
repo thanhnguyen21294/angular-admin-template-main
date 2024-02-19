@@ -39,7 +39,7 @@ import { ErrorInterceptor } from './@core/interceptors/error-interceptor';
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -47,7 +47,6 @@ import { ErrorInterceptor } from './@core/interceptors/error-interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     AuthGuard,
     SelectService,
-  ]
+  ],
 })
-export class AppModule {
-}
+export class AppModule {}
