@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { NbCardModule, NbTreeGridModule, NbIconModule, NbInputModule } from "@nebular/theme";
+import { NbCardModule, NbTreeGridModule, NbIconModule, NbInputModule, NbCheckboxModule } from "@nebular/theme";
 import { Ng2SmartTableModule } from "ng2-smart-table";
 import { ThemeModule } from "../../@theme/theme.module";
 import { RouterModule, Routes } from "@angular/router";
@@ -20,7 +20,8 @@ const route: Routes = [{
     NbInputModule,
     ThemeModule,
     Ng2SmartTableModule,
-    PaginationModule
+    PaginationModule,
+    NbCheckboxModule
   ],
   exports: [RouterModule],
   declarations: [ProductsComponent]

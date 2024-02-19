@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { HttpResponse, HttpStatusCode } from '@angular/common/http';
 import { NbToastrService } from '@nebular/theme';
+import { NbCheckboxComponent } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-products',
@@ -67,6 +68,11 @@ export class ProductsComponent implements OnInit {
         title: 'ID',
         type: 'number',
         hide: true
+      },
+      check: {
+        title: '',
+        type: 'custom',
+        renderComponent: NbCheckboxComponent,
       },
       name: {
         title: 'Name',

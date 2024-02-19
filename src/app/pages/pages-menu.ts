@@ -48,3 +48,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/alarms',
   }
 ];
+
+export const FIXED_MENU_ITEMS: NbMenuItem[] = [
+  {
+    title: 'Feedback',
+    icon: 'file-text-outline',
+    link: '/pages/feedback',
+  },
+  {
+    title: 'Settings',
+    icon: 'settings-2-outline',
+    link: '/pages/settings',
+  },
+  {
+    title: 'Log Out',
+    icon: 'log-out-outline',
+  }
+]
